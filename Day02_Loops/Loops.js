@@ -140,8 +140,25 @@
 //     patt +="\n"
 
     
-// }
-console.log(patt)
+// // }
+// console.log(patt)
+
+// let N=10;
+
+//  for(let i=1;i<=10;i++){
+//     let newstr=""
+//     for(let j=1;j<=i;j++){
+//       newstr+="*"+" "
+//     }
+//     // for(let k=1;k<=i;k++){
+//     //     newstr+="*"+" "
+//     // }
+ 
+//     console.log(newstr)
+    
+//  }
+ 
+
 
 
 
