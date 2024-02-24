@@ -135,11 +135,11 @@
 //         else{
 //               patt+=" "
 //         }
-    
+
 //     }
 //     patt +="\n"
 
-    
+
 // // }
 // console.log(patt)
 
@@ -153,11 +153,27 @@
 //     // for(let k=1;k<=i;k++){
 //     //     newstr+="*"+" "
 //     // }
- 
+
 //     console.log(newstr)
-    
+
 //  }
- 
+
+// let num = 10;
+
+// for (let i = 1; i <= num; i++) {
+//     let newstr = ""
+//     for (let j = 1; j <= num; j++) {
+//         if (j === 1 || j === num || i === num || i === 1 || i === j ) {
+//             newstr += "*" + " "
+//         }
+//         else {
+//             newstr += " " + " "
+//         }
+//     }
+
+//     console.log(newstr)
+// }
+
 
 
 
