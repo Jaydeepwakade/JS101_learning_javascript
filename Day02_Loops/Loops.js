@@ -86,14 +86,6 @@
 
 //Write a JS code to print a pattern using for loop
 
-// for(let i="1"; i<=10;i++){
-//     let star =  Number(i)
-//     let patt =""
-//     for(let j=1;j<=i;j++){
-//         patt+=j+""
-//     }
-//     console.log(patt)
-// }
 
 //    let str ="leijyel"
 //    let rStr=""
@@ -112,18 +104,45 @@
 
 // }
 
-let string = "lejal"
-let rStr = ""
+// let string = "lejal"
+// let rStr = ""
 
 
-for (let i = string.length - 1; i >= 0; i--) {
-    rStr = rStr + string[i];
-}
-if (string === rStr) {
-    console.log("Yes")
-}
-else {
-    console.log("No")
-}
-      
+// for (let i = string.length - 1; i >= 0; i--) {
+//     rStr = rStr + string[i];
+// }
+// if (string === rStr) {
+//     console.log("Yes")
+// }
+// else {
+//     console.log("No")
+// }
+
+// for(let i=1; i<=10;i++){
+
+//     let patt =""
+//     for(let j=1;j<=10;j++){
+//         patt+=j+""
+//     }
+//     console.log(patt)
+// }
+// let patt =""
+// for (let i = 1; i <= 10; i++) {
+//     for (let j = 1; j <= 10; j++) {
+//         if (j ===1 || j===10|| i===j) {
+//             patt +="*"
+//         }
+//         else{
+//               patt+=" "
+//         }
+    
+//     }
+//     patt +="\n"
+
+    
+// }
+console.log(patt)
+
+
+
 
