@@ -111,25 +111,26 @@
 // }
 // console.log(sum)
 
-let arr=["a","c",3,4,5,6,7,8,9]
+// let arr=["a","c",3,4,5,6,7,8,9]
 
-function splicee(arr,a,b){
-    let newarr=[]
-   for(let i=0;i<arr.length;i++){
+// function splicee(arr,a,b){
+//     let newarr=[]
+//    for(let i=0;i<arr.length;i++){
 
-     if(arr[i]==(a && b)){
-        newarr+=arr[i]
-       console.log(newarr)
-       if(a==b){
-        newarr+=arr[i]
-        console.log(typeof newarr)
-       }
-     }
-     if(arr[i]===b){
-        newarr+=arr[i]
-       console.log( typeof newarr)
-     }
-   }
-}
+//      if(arr[i]==(a && b)){
+//         newarr+=arr[i]
+//        console.log(newarr)
+//        if(a==b){
+//         newarr+=arr[i]
+//         console.log(typeof newarr)
+//        }
+//      }
+//      if(arr[i]===b){
+//         newarr+=arr[i]
+//        console.log( typeof newarr)
+//      }
+//    }
+// }
 
-console.log(splicee(arr,"a",9))
+// console.log(splicee(arr,"a",9))
+

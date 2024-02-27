@@ -173,6 +173,16 @@
 
 //     console.log(newstr)
 // }
+let num=7
+let sumodd=0;
+for(let i=1;i<=num;i++){
+    if(i%2!==0){
+      sumodd+=i
+    }
+}
+console.log(sumodd)
+
+
 
 
 

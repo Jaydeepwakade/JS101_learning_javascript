@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mini calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            background-color: aqua;
+            height: 100vh;
+        }
+
+        #div1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        #num1,
+        #num2 {
+            font-size: 40px;
+            height: 50px;
+
+        }
+
+        .btn {
+            font-size: 30px;
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+        }
+
+        #div2 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            font-size: 60px;
+        }
+
+        #para {
+            font-size: 40px;
+            height: 50px;
+            width: 300px;
+            text-align: center;
+            background-color: white;
+            border: 2px solid green;
+        }
+
+        #ans {
+            text-align: center;
+            font-size: 30px;
+            color: rgb(236, 70, 15);
+            font-weight: 800;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div>
+            <p id="ans">ANSWER</p>
+            <p id="para">
+
+            </p>
+        </div>
+        <div id="div1">
+            <input id="num1" type="number" placeholder="Enter first Number" value="">
+            <input id="num2" type="Number" placeholder="Enter second Number" value="">
+        </div>
+        <div id="div2">
+            <button class="btn" id="Add" onclick="addnumbers()">Add</button>
+            <button class="btn" id="sub" onclick="sub()">Subtract</button>
+            <button class="btn" id="mul" onclick="multi()">Multiply</button>
+            <button class="btn" id="div" onclick="div()">Divide</button>
+        </div>
+    </div>
+</body>
+<script>
+
+
+    function addnumbers(num1, num2) {
+        let n = Number(document.getElementById("num1").value)
+        let n2 = Number(document.getElementById("num2").value)
+        let sum = n + n2
+        let ans = document.getElementById("para")
+        ans.innerText = sum
+    }
+    function sub(num1, num2) {
+        let n = Number(document.getElementById("num1").value)
+        let n2 = Number(document.getElementById("num2").value)
+        let sum = n - n2
+        let ans = document.getElementById("para")
+        ans.innerText = sum
+    }
+    function multi(num1, num2) {
+        let n = Number(document.getElementById("num1").value)
+        let n2 = Number(document.getElementById("num2").value)
+        let sum = n * n2
+        let ans = document.getElementById("para")
+        ans.innerText = sum
+
+    }
+    function div(num1, num2) {
+        let n = Number(document.getElementById("num1").value)
+        let n2 = Number(document.getElementById("num2").value)
+        let sum = n / n2
+        let sum2 = Math.round(sum * 100) / 100
+        let ans = document.getElementById("para")
+        ans.innerText = sum2
+
+    }
+
+
+
+
+</script>
+
+</html>

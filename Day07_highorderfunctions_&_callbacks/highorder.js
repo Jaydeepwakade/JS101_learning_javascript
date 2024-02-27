@@ -7,8 +7,8 @@
 //   })
 //   console.log(newarr)
 
-//Use the filter function to get only the even numbers from the array [1, 2, 3, 4, 5].
-//Expected Output: [2, 4]
+// Use the filter function to get only the even numbers from the array [1, 2, 3, 4, 5].
+// Expected Output: [2, 4]
  
 
 // let arr = [1,2,3,4,5];
@@ -18,8 +18,8 @@
 // console.log(newarr)
 
 
-//Use the reduce function to find the sum of elements in the array [1, 2, 3, 4, 5].
-//Expected Output: 15
+// Use the reduce function to find the sum of elements in the array [1, 2, 3, 4, 5].
+// Expected Output: 15
 
 // let arr=[1,2,3,4,5]
 // let sum=0;
