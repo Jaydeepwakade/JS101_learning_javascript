@@ -52,11 +52,12 @@
 
         #para {
             font-size: 40px;
-            height: 50px;
-            width: 300px;
+            height: 70px;
+            width: 400px;
             text-align: center;
             background-color: white;
             border: 2px solid green;
+            overflow: auto;
         }
 
         #ans {
@@ -131,8 +132,11 @@
     document.getElementById("div").addEventListener("click", operator(div))
  let clear = ()=>{
     document.getElementById("para").innerText=""
+    document.getElementById('num1').value=""
+    document.getElementById("num2").value=""
  }
  document.getElementById("clear").addEventListener("click",clear)
+ 
 </script>
 
 </html>
