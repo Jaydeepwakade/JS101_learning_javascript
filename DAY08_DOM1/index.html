@@ -70,6 +70,7 @@
 
 <body>
     <div id="container">
+        <h1>MINI CALCULATOR</h1>
         <div>
             <p id="ans">ANSWER</p>
             <p id="para">
@@ -81,51 +82,57 @@
             <input id="num2" type="Number" placeholder="Enter second Number" value="">
         </div>
         <div id="div2">
-            <button class="btn" id="Add" onclick="addnumbers()">Add</button>
-            <button class="btn" id="sub" onclick="sub()">Subtract</button>
-            <button class="btn" id="mul" onclick="multi()">Multiply</button>
-            <button class="btn" id="div" onclick="div()">Divide</button>
+            <button class="btn" id="Add">Add</button>
+            <button class="btn" id="sub">Subtract</button>
+            <button class="btn" id="mul">Multiply</button>
+            <button class="btn" id="div">Divide</button>
+           
         </div>
+        <button style="background-color: greenyellow;" class="btn" id="clear">clear</button>
     </div>
 </body>
 <script>
 
 
-    function addnumbers(num1, num2) {
-        let n = Number(document.getElementById("num1").value)
-        let n2 = Number(document.getElementById("num2").value)
-        let sum = n + n2
-        let ans = document.getElementById("para")
-        ans.innerText = sum
+    function operator(operation) {
+        return function () {
+            let n = Number(document.getElementById("num1").value)
+            let n2 = Number(document.getElementById("num2").value)
+            let sum = operation(n, n2)
+            let ans = document.getElementById("para")
+            ans.innerText = sum
+        }
     }
-    function sub(num1, num2) {
-        let n = Number(document.getElementById("num1").value)
-        let n2 = Number(document.getElementById("num2").value)
-        let sum = n - n2
-        let ans = document.getElementById("para")
-        ans.innerText = sum
+    function add(n1, n2) {
+        alert(n1 + n2)
+        return n1 + n2
     }
-    function multi(num1, num2) {
-        let n = Number(document.getElementById("num1").value)
-        let n2 = Number(document.getElementById("num2").value)
-        let sum = n * n2
-        let ans = document.getElementById("para")
-        ans.innerText = sum
-
+    document.getElementById("Add").addEventListener("click", operator(add));
+    let subs = (n1, n2) => {
+        alert(n1 - n2)
+        return n1 - n2
     }
-    function div(num1, num2) {
-        let n = Number(document.getElementById("num1").value)
-        let n2 = Number(document.getElementById("num2").value)
-        let sum = n / n2
-        let sum2 = Math.round(sum * 100) / 100
-        let ans = document.getElementById("para")
-        ans.innerText = sum2
-
+    document.getElementById("sub").addEventListener("click", operator(subs));
+    let mult = (n1, n2) => {
+        alert(n1 * n2)
+        return n1 * n2
     }
-
-
-
-
+    document.getElementById("mul").addEventListener("click", operator(mult));
+    let div = (n1, n2) => {
+        if (n2 !== 0) {
+            alert(Math.round(n1 / n2 * 100) / 100)
+            return Math.round(n1 / n2 * 100) / 100
+        }
+        else {
+            alert(`${n1} is not divide by ${n2}`)
+            return null
+        }
+    }
+    document.getElementById("div").addEventListener("click", operator(div))
+ let clear = ()=>{
+    document.getElementById("para").innerText=""
+ }
+ document.getElementById("clear").addEventListener("click",clear)
 </script>
 
 </html>
