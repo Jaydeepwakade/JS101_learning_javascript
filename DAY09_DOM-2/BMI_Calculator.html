@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI CALCULATOR</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 30px;
+            justify-content: center;
+            height: 100vh;
+            background-color: rgb(13, 163, 227);
+        }
+
+       #div1{
+            background-color: azure;
+            height: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            width: 30%;
+        }
+
+        #container div input {
+            height: 5vh;
+            width: 50%;
+            text-align: center;
+            font-size: 40px;
+        }
+
+        button {
+            height: 50px;
+            width: 150px;
+            font-size: 20px;
+            font-weight: 600;
+            background-color: chartreuse;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>BMI CALCULATOR</h1>
+        <div id="div1">
+            <h3>ENTER YOUR WEIGHT</h3>
+            <input type="number" id="weight" value="">
+            <h3>ENTER YOUR HEIGHT</h3>
+            <input type="number" id="height" value="">
+            <button id="btn">CALCULATE</button>
+            <p id="para"></p>
+        </div>
+    </div>
+</body>
+<script>
+
+
+
+    let Bmi = () => {
+        let weigth = parseInt(document.getElementById("weight").value)
+        let height = parseInt(document.getElementById("height").value)
+        let c = (weigth) / ((height / 100) ** 2)
+        let bmi = c.toFixed(1)
+        let para = document.getElementById("para").innerText= `Your BMI is ${bmi}`
+    }
+    
+    let btn = document.getElementById("btn")
+    btn.addEventListener("click", Bmi)
+
+    
+     
+
+    // if(Bmi<=18.4){
+    //   document.createElement("h3")
+    // }
+
+</script>
+
+</html>
