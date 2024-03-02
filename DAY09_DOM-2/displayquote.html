@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn">Show Quote in console</button>
+  <p id="quote">Talk is cheap Show me the code</p>
+</body>
+</html>
+<script>
+
+   let hide = document.getElementById("quote").style.display="none"
+  function onclick(){
+    let quote= document.getElementById("quote")
+
+    if(quote.style.display==="none" || quote.style.display===""){
+      quote.style.display="block"
+      console.log(quote.innerText)
+    }
+    else{
+      quote.style.display="none"
+    
+    }
+  }
+  let btn= document.getElementById("btn").addEventListener("click",onclick)
+</script>
