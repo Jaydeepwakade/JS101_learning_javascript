@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Events</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+          
+
+        }
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 30px;
+            height: 100vh;
+
+        }
+        #btn{
+            height: 80px;
+            width: 200px;
+            font-size: 35px;
+
+
+        }
+
+    </style>
+  </head>
+  <body>
+    <button id="btn"> Ring Bell </button>
+    <h2 id="para"></h2>
+  </body>
+</html>
+<script>
+  function ringbell(){
+    let button = document.getElementById("para").innerText="Please open the door"
+      console.log(button) 
+}
+  document.getElementById("btn").addEventListener("click",ringbell)
+</script>
