@@ -21,15 +21,16 @@
             background-color: rgb(13, 163, 227);
         }
 
-       #div1{
-            background-color: azure;
-            height: 50%;
+        #div1 {
+            background-color: rgb(110, 243, 38);
+            height: 60%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             gap: 30px;
             width: 30%;
+            border-radius: 40px;
         }
 
         #container div input {
@@ -37,6 +38,8 @@
             width: 50%;
             text-align: center;
             font-size: 40px;
+            border: none;
+            border-radius: 20px;
         }
 
         button {
@@ -44,8 +47,22 @@
             width: 150px;
             font-size: 20px;
             font-weight: 600;
-            background-color: chartreuse;
+            background-color: rgb(194, 187, 229);
             cursor: pointer;
+            border-radius: 30px;
+            border: none;
+        }
+
+        #out {
+            font-size: 25px;
+            font-weight: 600;
+            text-align: center;
+            height: 60px;
+         
+        }
+        #div2{
+            display: flex;
+         gap: 20px;
         }
     </style>
 </head>
@@ -54,32 +71,64 @@
     <div id="container">
         <h1>BMI CALCULATOR</h1>
         <div id="div1">
-            <h3>ENTER YOUR WEIGHT</h3>
+            <h3>ENTER YOUR WEIGHT IN (KG)</h3>
             <input type="number" id="weight" value="">
-            <h3>ENTER YOUR HEIGHT</h3>
+            <h3>ENTER YOUR HEIGHT IN (CM)</h3>
             <input type="number" id="height" value="">
-            <button id="btn">CALCULATE</button>
-            <p id="para"></p>
+            <div id="div2">
+                <button id="btn">CALCULATE</button>
+                <button id="btn2">CLEAR</button>
+            </div>
+            <p id="out"></p>
         </div>
+       
     </div>
 </body>
 <script>
 
 
-
+    // let para = document.getElementById("p").innerText="" 
     let Bmi = () => {
         let weigth = parseInt(document.getElementById("weight").value)
         let height = parseInt(document.getElementById("height").value)
+        if (isNaN(weigth) || isNaN(height) || weigth <= 0 || height <= 0) {
+            alert("please enter the valid crednetials")
+            let output = document.getElementById("out").innerText = ""
+            document.getElementById("height").value=null
+            document.getElementById("weight").value=null
+        }
         let c = (weigth) / ((height / 100) ** 2)
         let bmi = c.toFixed(1)
-        let para = document.getElementById("para").innerText= `Your BMI is ${bmi}`
+
+        if (bmi <= 18.14) {
+            let output = document.getElementById("out").innerText = `Your BMI ia ${bmi} which means You are UnderWeigth`
+        }
+        else if (bmi >= 18.5 && bmi <= 24.9) {
+            let output = document.getElementById("out").innerText = `Your BMI is  ${bmi} which means You are  Normal weigth`
+        }
+        else if (bmi >= 25 && bmi <= 29.9) {
+            let output = document.getElementById("out").innerText = `Your BMI is  ${bmi} which means You are  Overweigth`
+        }
+        else if (bmi >= 30) {
+            let output = document.getElementById("out").innerText = `Your BMI is  ${bmi} which means You are  obese`
+        }
+
     }
-    
+
     let btn = document.getElementById("btn")
     btn.addEventListener("click", Bmi)
-
     
-     
+
+    let clear = ()=>{
+       let c = document.getElementById("out").innerText = ""
+       document.getElementById("height").value=""
+       document.getElementById("weight").value=""
+       console.log(c)
+    }
+  
+    let btnc = document.getElementById("btn2").addEventListener("click",clear)
+
+
 
     // if(Bmi<=18.4){
     //   document.createElement("h3")
