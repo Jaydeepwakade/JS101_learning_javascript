@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: aqua;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            /* align-items: center; */
+            justify-content: center;
+        }
+
+        #Form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 50vh;
+            gap: 10px;
+            background-color: antiquewhite;
+            width: 40%;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="Form">
+        <p>Enter your Name</p>
+        <input type="text" id="Name" value="" />
+        <p>Enter your Age</p>
+        <input type="number" id="Age" value="" />
+        <p>Select your gender</p>
+        <select id="gender">
+            <option value=""></option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+        <button id="btn">Submit</button>
+    </form>
+    <table border="">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>gender</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+
+        <tbody></tbody>
+    </table>
+</body>
+
+</html>
+<script>
+    let arr = [];
+    function formdata(event) {
+        event.preventDefault();
+        let name = document.getElementById("Name").value;
+        let age = document.getElementById("Age").value;
+        let gender = document.getElementById("gender").value;
+        let btn = (document.createElement("button").innerText = "delete");
+
+        if (name === isNaN || name === "") {
+            alert("please enter the name");
+            displayData((arr.name = ""));
+        } else if (age === isNaN || age === "") {
+            alert("please Enter age");
+            displayData((arr.age = ""));
+        } else if (gender === isNaN || gender === "") {
+            alert("Please select your gender");
+            displayData((arr.gender = ""));
+        }
+
+        let obj = {
+            name: name,
+            age: age,
+            gender: gender,
+            dlete: btn,
+        };
+
+        arr.push(obj);
+        displayData(arr);
+    }
+    let btn = document.getElementById("btn").addEventListener("click", formdata);
+
+    function displayData(arr) {
+        document.querySelector("tbody").innerHTML = "";
+        arr.forEach((ele, ind) => {
+            let tr = document.createElement("tr");
+            let td1 = document.createElement("td");
+            td1.innerText = ele.name;
+            let td2 = document.createElement("td");
+            td2.innerText = ele.age;
+            let td3 = document.createElement("td");
+            td3.innerText = ele.gender;
+            let btn = document.createElement("button");
+            btn.innerHTML = "delete";
+            btn.addEventListener("click", function () {
+                deletedata(ind);
+            });
+            tr.append(td1, td2, td3, btn);
+            document.querySelector("tbody").append(tr);
+        });
+    }
+    function deletedata(ind) {
+        arr.splice(ind, 1);
+        displayData(arr);
+    }
+</script>
