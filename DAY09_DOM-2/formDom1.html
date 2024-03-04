@@ -82,6 +82,10 @@
             alert("Please select your gender");
             displayData((arr.gender = ""));
         }
+        else if(age<=0 || age>100){
+            alert("please enter the valid Age")
+            displayData(arr.age="")
+        }
 
         let obj = {
             name: name,
