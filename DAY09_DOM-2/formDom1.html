@@ -1,75 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-      }
 
-      body {
-        background-color: aqua;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        height: 100vh;
-        /* align-items: center; */
-        justify-content: center;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
 
-      #Form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 50vh;
-        gap: 10px;
-        background-color: antiquewhite;
-        width: 40%;
-      }
-    </style>
-  </head>
+    body {
+      background-color: aqua;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      /* align-items: center; */
+      justify-content: center;
+    }
 
-  <body>
-    <form id="Form">
-      <p>Enter your Name</p>
-      <input type="text" id="Name" value="" />
-      <p>Enter your Age</p>
-      <input type="number" id="Age" value="" />
-      <p>Select your gender</p>
-      <select id="gender">
-        <option value=""></option>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-      </select>
-      <button id="btn">Submit</button>
-    </form>
-    <div>
-      <select id="filters" id="filter">
-        <option value="">filters</option>
-        <option id="maleFilter" value="Male">male</option>
-        <option id="femaleFilter" value="Female">female</option>
-      </select>
-    </div>
-    <table border="">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Age</th>
-          <th>gender</th>
-          <th>Delete</th>
-        </tr>
-      </thead>
+    #Form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 50vh;
+      gap: 10px;
+      background-color: antiquewhite;
+      width: 40%;
+    }
+  </style>
+</head>
 
-      <tbody></tbody>
-    </table>
-  </body>
+<body>
+  <form id="Form">
+    <p>Enter your Name</p>
+    <input type="text" id="Name" value="" />
+    <p>Enter your Age</p>
+    <input type="number" id="Age" value="" />
+    <p>Select your gender</p>
+    <select id="gender">
+      <option value=""></option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+    <button id="btn">Submit</button>
+  </form>
+  <div>
+    <select id="filters">
+      <option value="">filters</option>
+      <option id="maleFilter" value="Male">male</option>
+      <option id="femaleFilter" value="Female">female</option>
+    </select>
+  </div>
+  <table border="">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>gender</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+
+    <tbody></tbody>
+  </table>
+</body>
+
 </html>
 <script>
-  let arr = [];
+  let arr = JSON.parse(localStorage.getItem("key")) || [];
+  displayData(arr);
+
   function formdata(event) {
     event.preventDefault();
     let name = document.getElementById("Name").value;
@@ -78,7 +82,7 @@
     let btn = (document.createElement("button").innerText = "delete");
 
     if (
-         name === "") {
+      name === "") {
       alert("please enter the name");
       displayData((arr.name = ""));
     } else if (age === "") {
@@ -100,6 +104,7 @@
     };
 
     arr.push(obj);
+    localStorage.setItem("key",JSON.stringify(arr))
     displayData(arr);
   }
   let btn = document.getElementById("btn").addEventListener("click", formdata);
@@ -130,28 +135,19 @@
     displayData(arr);
   }
 
-  function filterM(arr) {
-    let newarr = arr.filter((item) => {
-      return item.gender === "Male";
-    });
-    displayData(newarr);
+  function filteruser(){
+    let value= document.getElementById("filters").value
+    console.log(value)
+   let update= arr.filter(function(ele){
+       return ele.gender===value 
+       
+    })
+ 
+    displayData(update)
   }
-  function filterF(arr) {
-    let newarr = arr.filter((item) => {
-      return item.gender === "Female";
-    });
-    displayData(newarr);
-  }
+ 
   document.getElementById("filters").addEventListener("change", function () {
-    let option = this.options[this.selectedIndex].value;
-    if (option === "Female") {
-      document.querySelector("tbody").innerHTML = "";
-      filterF(arr);
-    } else if (option === "Male") {
-      document.querySelector("tbody").innerHTML = "";
-      filterM(arr);
-    } else {
-      displayData(arr);
-    }
+      filteruser()
   });
+
 </script>

@@ -1,0 +1,66 @@
+/* Fill CSS here */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    color: #216499;
+    text-decoration: underline;
+    text-align: center;
+    padding: 20px;
+}
+div{
+    display: flex;
+    gap: 10px;
+   margin: 20px;
+}
+form{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 25%;
+    padding: 20px;
+    
+}
+input,select{ 
+    margin-bottom: 5%;
+    width: 100%;
+}
+#btn{
+    color: white;
+    background: #216499;
+    border: none;
+    border-radius: 20px;
+    height: 20px;
+}
+table{
+    width: 100%;
+    height: 30px;
+
+}
+
+tr{
+    background-color: #0e4674;
+    color: rgb(220, 22, 22);
+    font-size: 15px;
+
+}
+td {
+    padding: 8px;
+    text-align:center;
+    background-color: rgb(211, 222, 206);
+   /* Align content to the top of each cell */
+  }
+th{
+    color: white;
+     padding: 8px 20px;
+     font-size: 10px;
+    white-space: nowrap;
+  
+     
+}
+#Filter{
+    display: flex;
+    width: 20%;
+    margin-left: 70%;
+    
+}
