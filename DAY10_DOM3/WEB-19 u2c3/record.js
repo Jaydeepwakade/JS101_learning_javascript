@@ -26,10 +26,62 @@ function getData(){
      else if( Exp>=0 && Exp<2 ){
          role="Fresher"
      }
-     else if(Exp==="" || Exp ===NaN){
-        alert("please Enter the experince")
+     
+     document.getElementById("NameP").innerText=""
+     document.getElementById("Emp-id").innerText=""
+     document.getElementById("Dep").innerText=""
+     document.getElementById("Exper").innerText=""
+     document.getElementById("EmailP").innerText=""
+     document.getElementById("number").innerText=""
+     let  namerror= false
+     let iderror =false
+     let deperror=false
+     let exprerror=false
+     let eamilerror=false
+     let numeroor= false
+
+     if(Name===""){
+        namerror=true
      }
-     console.log(role)
+    if(Id===""){
+        iderror=true
+    }
+    if(Department===""){
+        deperror=true
+    }
+    if(Exp===""){
+        exprerror=true
+    }
+    if(email===""){
+        eamilerror=true
+    }
+    if(mobile===""){
+         numeroor=true
+    }
+    if(namerror){
+        document.getElementById("NameP").innerText="Name is requierd"
+    }
+    if(iderror){
+        document.getElementById("Emp-id").innerText="id is required"
+    }
+    if(deperror){
+        document.getElementById("Dep").innerText="Dep is required"
+    }
+    if(exprerror){
+        document.getElementById("Exper").innerText="Experience is required"
+    }
+    if(eamilerror){
+        document.getElementById("EmailP").innerText="Email is required"
+    }
+    if(numeroor){
+        document.getElementById("number").innerText="Number is required"
+    }
+   
+      if(namerror || iderror || deperror ||exprerror||eamilerror||numeroor){
+        return false
+      }
+ 
+   
      let obj={
         Name :Name,
         Id :Id,
@@ -81,8 +133,8 @@ function formdata(arr){
 }
 function del(ind){
     arr.splice(ind,1)
-      formdata(arr)
-  
+    localStorage.setItem("Data",JSON.stringify(arr))
+    formdata(arr)
    }
 
    document.getElementById("Filter").addEventListener("change",function(){
