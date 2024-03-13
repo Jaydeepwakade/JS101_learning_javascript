@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>roll the Dice</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: center;
+            height: 100vh;
+            width: 100%;
+            background-color: antiquewhite;
+
+        }
+
+        #members {
+            display: flex;
+            gap: 50px;
+        }
+
+        #member1,
+        #member2,
+        #member3 {
+            background-color: white;
+            height: 100px;
+            width: 130px;
+            font-size: 30px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        #winner {
+            height: 100px;
+            width: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            font-weight: 700;
+            background-color: white;
+            margin-bottom: 100px;
+            text-align: center;
+        }
+
+        #btn {
+            height: 50px;
+            font-size: 20px;
+            width: 150px;
+            font-weight: 700;
+        }
+
+        #text {
+            display: flex;
+            gap: 70px;
+            font-size: 25px;
+            font-weight: 700;
+            color: rgb(10, 10, 10);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Throw Dice</h1>
+        <div id="winner">
+
+        </div>
+        <div id="members">
+            <div id="member1"></div>
+            <div id="member2"></div>
+            <div id="member3"></div>
+        </div>
+        <div id="text">
+            <div>Member 1</div>
+            <div>Member 2</div>
+            <div>Member 3</div>
+        </div>
+
+        <div>
+            <button id="btn">Roll the dice</button>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    document.getElementById("btn").addEventListener("click", randomNumber)
+
+
+    function randomNumber() {
+        let num = []
+        while (num.length < 3) {
+            let newN = Math.floor(Math.random() * 6) + 1
+
+            num.push(newN)
+
+        }
+        let maxscore = Math.max(...num)
+        let minscore = Math.min(...num)
+        let winner = []
+        let secondwinner = []
+
+        for (let i = 0; i < num.length; i++) {
+            if (num[i] === maxscore) {
+                winner.push(i)
+            }
+            else if (num[i] === minscore) {
+                document.getElementById(`member${i + 1}`).style.backgroundColor = "red"
+            }
+            else {
+                secondwinner.push(i)
+            }
+        }
+
+        if (winner.length === 1) {
+            winnerindex = winner[0]
+            document.getElementById(`member${winnerindex + 1}`).style.backgroundColor = "green"
+            document.getElementById("winner").innerText = `member ${winnerindex + 1} is the winner with the score of ${maxscore}`
+        }
+        else if (winner.length > 1) {
+            winner.forEach(winnerindex => {
+                document.getElementById(`member${winnerindex + 1}`).style.backgroundColor = "blue"
+            })
+            document.getElementById("winner").innerText = "it is Draw"
+        }
+
+        secondwinner.forEach(secondscoreindex => {
+            document.getElementById(`member${secondscoreindex + 1}`).style.backgroundColor = "yellow"
+        })
+        console.log(winner)
+
+
+        let member1 = document.getElementById("member1")
+        member1.innerText = num[0]
+
+        let member2 = document.getElementById("member2")
+        member2.innerText = num[1]
+
+        let member3 = document.getElementById("member3")
+        member3.innerText = num[2]
+    }
+
+</script>
