@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 80%;
+            gap: 20px;
+            border: 2px solid;
+            background-color: rgb(34, 71, 107);
+        }
+
+        #services {
+            display: flex;
+            gap: 20px;
+        }
+
+        #deposit,
+        #withdraw {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            font-size: 30px;
+        }
+
+        #check {
+            display: flex;
+            gap: 120px;
+        }
+
+     select,input {
+            height: 40px;
+            width: 300px;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        button {
+            height: 40px;
+            width: 200px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        #form {
+            display: flex;
+            width: 400px;
+            flex-direction: column;
+
+        }
+
+        #account {
+            width: 30%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+             background-color: antiquewhite;        }
+
+
+        #acc-number{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            height: 60vh;
+            background-color: aquamarine;
+            border-radius: 20px;
+        }
+        #acc-number div{
+            display: flex;
+            flex-direction: column;
+            font-size: 20px;
+
+        }
+
+        
+
+    </style>
+</head>
+
+<body>
+    <div id="account">
+        <div id="form">
+            <form>
+                <div id="acc-number">
+                    <div>
+                        <input id="number" type="number">
+                        <label for="">Enter Account Number</label>
+                    </div>
+                    <div>
+                        <input id="name" type="text">
+                        <label for="">Enter the Name</label>
+                    </div>
+                    <div>
+                        <select name="" id="type">
+                            <option value="">account type</option>
+                            <option value="Saving">Saving</option>
+                            <option value="current">current</option>
+                           
+                        </select>
+                        <label for="">select type of account</label>
+                     </div>
+
+                     <div>
+                        <input id="balance" type="number">
+                        <label for="">Enter the account Balance</label>
+                    </div>
+                     <div>
+                        <button id="submit">submit</button>
+                     </div>
+                </div>
+
+            </form>
+        </div>
+
+
+    </div>
+    <div id="container">
+
+        <div id="operation">
+            <h1></h1>
+        </div>
+        <div id="services">
+            <div id="deposit">
+                <input type="number">
+                <button>Deposit</button>
+            </div>
+            <div id="withdraw">
+                <input type="Number">
+                <button>Withdraw</button>
+            </div>
+        </div>
+        <div id="check">
+            <button>Check Balance</button>
+            <button>Account status</button>
+
+        </div>
+    </div>
+</body>
+<script src="index.js"></script>
+</html>
