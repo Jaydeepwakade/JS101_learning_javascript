@@ -24,7 +24,7 @@
             width: 80%;
             gap: 20px;
             border: 2px solid;
-            background-color: rgb(34, 71, 107);
+            background-color: rgb(113, 119, 124);
         }
 
         #services {
@@ -100,7 +100,9 @@
 </head>
 
 <body>
+    
     <div id="account">
+
         <div id="form">
             <form>
                 <div id="acc-number">
@@ -137,14 +139,15 @@
 
     </div>
     <div id="container">
+      
 
-        <div id="operation">
-            <h1></h1>
-        </div>
+        <h1 id="operation">
+           
+        </h1>
         <div id="services">
             <div id="deposit">
-                <input type="number">
-                <button>Deposit</button>
+                <input id="dep" type="number">
+                <button id="btn-depo">Deposit</button>
             </div>
             <div id="withdraw">
                 <input type="Number">
@@ -152,11 +155,30 @@
             </div>
         </div>
         <div id="check">
-            <button>Check Balance</button>
+            <button id="checkbal">Check Balance</button>
             <button>Account status</button>
 
         </div>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Account</th>
+                    <th>Name</th>
+                    <th>type</th>
+                     <th>balance</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
     </div>
 </body>
-<script src="index.js"></script>
+<script src="index.js">
+    
+
+
+
+
+</script>
 </html>

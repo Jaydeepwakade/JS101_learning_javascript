@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online book store</title>
+    <style>
+     #Bookstore,#para{
+            display: flex;
+            gap: 50px;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+           }
+    </style>
+</head>
+
+<body>
+       <div id="para">
+        <h1>Online book store</h1>
+       </div>
+        
+        <div id="Bookstore">
+
+        </div>
+    </div>
+</body>
+<script>
+    function Book(title, author, genre, price) {
+        this.title = title
+        this.author = author
+        this.genre = genre
+        this.price = price
+    }
+
+    function Author(name, birthyear, nationality) {
+        this.name = name
+        this.birthyear = birthyear
+        this.nationality = nationality
+    }
+
+    Book.prototype.getBookinfo = function () {
+       return `${this.title} <br>${this.author.name} <br> ${this.genre} <br>${this.price}`
+    
+    }
+
+    let author1 = new Author("Sarah Johnson", 1985, "American");
+    let author2 = new Author("David Chen", 1978, "Chinese");
+    let author3 = new Author("Emily Harper", 1990, "British");
+    let author4 = new Author("Michael Roberts", 1963, "Canadian");
+    let author5 = new Author("Jessica Lee", 1982, "Australian");
+
+
+    let book1 = new Book("Echoes of Eternity", author1, "Fantasy", "$12.99");
+    let book2 = new Book("The Midnight Conspiracy", author2, "Thriller", "$10.49");
+    let book3 = new Book("Whispers in the Wind", author3, "Romance", "$8.99");
+    let book4 = new Book("Shadows of Destiny", author4, "Mystery", "$11.95");
+    let book5 = new Book("Beyond the Horizon", author5, "Science Fiction", "$9.99");
+    // newbook.getBookinfo()
+   let bookstore = document.getElementById("Bookstore")
+    displaybook(bookstore,book1)
+    displaybook(bookstore,book2)
+    displaybook(bookstore,book3)
+    displaybook(bookstore,book4)
+    displaybook(bookstore,book5)
+
+  
+   function displaybook(div,book){
+    let bookinfo = document.createElement("h3")
+     bookinfo.innerHTML= book.getBookinfo()
+    
+    div.appendChild(bookinfo)
+   }
+</script>
+
+</html>
