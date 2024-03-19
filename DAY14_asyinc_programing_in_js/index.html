@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="display">00:00:00</div>
+    <div>
+        <!-- <div style="display: flex; align-items: center; gap:20px; ">
+            <h1 id="count">0</h1>
+            <h2 id="seconds">0</h2>
+        </div> -->
+        <button id="start">start</button>
+        <button id="stop">stop</button>
+        <button id="reset">reset</button>
+
+    </div>
+</body>
+
+</html>
+<script>
+    let count = 0
+    let intervalid;
+    let seconds;
+    let secondcount = 0
+    const start = document.getElementById("start").addEventListener("click", function () {
+
+        intervalid = setInterval(function () {
+            count++
+            document.getElementById("display").innerText = count
+
+        }, 1000)
+        seconds = setInterval(function () {
+            secondcount++
+            if(secondcount>=100){
+                secondcount=0
+            }
+            document.getElementById("seconds").textContent = secondcount >0 ?secondcount: ""
+        }, 10)
+    })
+
+    const stop = document.getElementById("stop").addEventListener("click", function () {
+        clearInterval(intervalid)
+        clearInterval(seconds)
+
+    })
+
+    const reset = document.getElementById("reset").addEventListener("click", function () {
+        count = 0
+        secondcount = 0
+        document.getElementById("display").textContent = "00:00:00"
+        clearInterval(intervalid)
+        clearInterval(seconds)
+    })
+
+     function updatedisplay(){
+             const display = document.getElementById("display")
+
+     }
+</script>
