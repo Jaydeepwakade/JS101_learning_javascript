@@ -5,18 +5,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+           
+
+        }
+        #container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            gap: 20px;
+            height: 300px;
+            width: 650px;
+           border-radius: 30px;
+            background-color: rgb(179, 240, 240);
+        }
+        button{
+            height: 50px;
+            width: 100px;
+            font-size: 30px;
+            border: none;
+            border-radius: 20px;
+            color: rgb(19, 19, 20);
+            background-color: antiquewhite;
+        }
+        #div1{
+            display: flex;
+            /* gap: 10px; */
+            align-items: center;
+            justify-content: center;
+            
+
+        }
+       
+        #hour,#minute,#seconds,#milsecond{
+                height: 50px;
+                width: 80px;
+                margin-bottom: 30px;
+        }
+    
+    </style>
 </head>
 
 <body>
-    <div id="display">00:00:00</div>
-    <div>
-        <!-- <div style="display: flex; align-items: center; gap:20px; ">
-            <h1 id="count">0</h1>
+
+    <div  id="container">
+
+        <div id="div1">
+            <h2 id="hour"></h2>
+            <h2 id="minute"></h2>
             <h2 id="seconds">0</h2>
-        </div> -->
+            <h2 id="milsecond"></h2>
+        </div>
+       <div>
         <button id="start">start</button>
         <button id="stop">stop</button>
         <button id="reset">reset</button>
+       </div>
 
     </div>
 </body>
@@ -27,38 +84,67 @@
     let intervalid;
     let seconds;
     let secondcount = 0
+    let minute;
+    let minutecount = 0
+    let hour;
+    let hourcount=0
+
     const start = document.getElementById("start").addEventListener("click", function () {
 
         intervalid = setInterval(function () {
             count++
-            document.getElementById("display").innerText = count
+            if (count >= 60) {
+                count = 0
+            }
+            document.getElementById("seconds").innerText = count + " :"
 
         }, 1000)
+
+
         seconds = setInterval(function () {
             secondcount++
-            if(secondcount>=100){
-                secondcount=0
+            if (secondcount >= 100) {
+                secondcount = 0
             }
-            document.getElementById("seconds").textContent = secondcount >0 ?secondcount: ""
+            document.getElementById("milsecond").textContent =secondcount
         }, 10)
+
+        minute = setInterval(function () {
+            minutecount++
+            if (minutecount >= 60) {
+                minutecount = 0
+            }
+            document.getElementById("minute").textContent = minutecount + " :"
+        }, 60000);
+
+        hour= setInterval(function(){
+              hourcount++
+               document.getElementById("hour").textContent= hourcount+" :"
+        },3600000)
+
     })
 
     const stop = document.getElementById("stop").addEventListener("click", function () {
         clearInterval(intervalid)
         clearInterval(seconds)
+        clearInterval(minute)
+        clearInterval(hour)
 
     })
 
     const reset = document.getElementById("reset").addEventListener("click", function () {
         count = 0
         secondcount = 0
-        document.getElementById("display").textContent = "00:00:00"
-        clearInterval(intervalid)
-        clearInterval(seconds)
+        document.getElementById("milsecond").textContent = ""
+        document.getElementById("seconds").textContent = "0"
+        document.getElementById("minute").textContent = ""
+        // clearInterval(intervalid)
+        // clearInterval(seconds)
+        // clear
     })
 
-     function updatedisplay(){
-             const display = document.getElementById("display")
+    //  function updatedisplay(){
+    //          const display = document.getElementById("display")
 
-     }
+    //  }
 </script>
