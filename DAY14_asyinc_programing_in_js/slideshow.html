@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slideshow</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    
+        #images{
+         width: 60%;
+         height: 500px;
+         margin: auto;
+         margin-top: 150px;
+         border: 1px solid;
+         position: relative;
+        }
+        .img{
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+        #buttons{
+            display: flex;
+            justify-content: center;
+            text-align: center;
+             gap: 20px;
+            margin-top: 20px;
+        }
+        button{
+            font-size: 30px;
+            
+        }
+
+
+    </style>
+</head>
+<body>
+    
+          <div id="images">
+        <img src="https://picsum.photos/id/237/1000/500" alt="" class="img">
+        <img src="https://picsum.photos/id/238/1000/500" alt="" class="img">
+        <img src="https://picsum.photos/id/239/1000/500" alt="" class="img">
+        <img src="https://picsum.photos/id/240/1000/500" alt="" class="img">
+        <img src="https://picsum.photos/id/241/1000/500" alt="" class="img">
+          </div>
+          <div id="buttons">
+            <button id="prev">prev</button>
+            <button id="next">next</button>
+          </div>
+    
+</body>
+   <script>
+     let prev= document.getElementById("prev")
+     let next = document.getElementById("next")
+
+     let slidechange= ()=>{
+           
+     }
+
+   </script>
+</html>
