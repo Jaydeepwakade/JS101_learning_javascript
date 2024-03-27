@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch todo</title>
+</head>
+<style>
+    #div1 {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 500px;
+        height: 400px;
+    }
+
+    #div1 div {
+
+        background-color: antiquewhite;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: 30px;
+    }
+</style>
+
+<body>
+    <button id="btn">Fetch todos</button>
+    <div id="div1">
+
+    </div>
+</body>
+
+</html>
+<script>
+    //this is the async await function to fetch the  data from the api
+    async function todo() {
+        try {
+            let todo = await fetch("https://jsonplaceholder.typicode.com/todos")
+            let data = await todo.json()
+            getdata(data)
+            console.log(data)
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+  
+//this function itterate over the array  of object and append to the browser
+    function getdata(arr) {
+        arr.forEach(element => {
+            let div = document.createElement("div")
+            let userid = document.createElement("p")
+            userid.textContent = element.id
+            let title = document.createElement("p")
+            title.textContent = element.title
+            let completed = document.createElement("input")
+            completed.type ="checkbox"
+            completed.checked=element.completed 
+            div.append(userid, title, completed)
+            document.getElementById("div1").append(div)
+        });
+
+       
+
+
+    }
+    document.getElementById("btn").addEventListener("click",function(){
+            todo()
+        
+        })
+
+
+</script>
