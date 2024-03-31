@@ -49,7 +49,7 @@ function getItem(arr) {
 
       // Add the item to localStorage with key "buy-list"
       let buyList = JSON.parse(localStorage.getItem("buy-list")) || [];
-      buyList.push(dataarr[ind]); // Assuming ind is the index of the current item
+      buyList.push(ele); // Assuming ind is the index of the current item
       localStorage.setItem("buy-list", JSON.stringify(buyList));
 
     })
