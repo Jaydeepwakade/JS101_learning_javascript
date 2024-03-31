@@ -140,6 +140,7 @@ function del(ind){
    document.getElementById("Filter").addEventListener("change",function(){
     filterdata(arr)
    })
+   
    function filterdata(arr){
     let filterd=document.getElementById("Filter").value
     let update = arr.filter(function(ele){
