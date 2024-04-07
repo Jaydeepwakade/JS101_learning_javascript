@@ -48,7 +48,8 @@ let pagination = (total, limit) => {
            
         });
         pagescontainer.appendChild(btn);
-    }updateButtonColor()
+    }
+    updateButtonColor()
 };
 
 let addData = (data) => {
