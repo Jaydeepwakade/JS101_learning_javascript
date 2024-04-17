@@ -28,6 +28,7 @@ let fetchdata = async () => {
 
 let addData = (data) => {
 
+
   data.forEach(element => {
     let wrapper = document.createElement("div")
     wrapper.classList.add("data-list-wrapper")
@@ -37,6 +38,7 @@ let addData = (data) => {
 
     let imgdiv = document.createElement("div")
     let img = document.createElement("img")
+    img.classList.add("recipe-image")
     img.src = element.image
     imgdiv.append(img)
 
@@ -58,11 +60,10 @@ let addData = (data) => {
     wrapper.append(card)
     mainSection.append(wrapper)
     
-
     recipesArray.push(wrapper)
   });
   totalResult.textContent=recipesArray.length
- console.log(recipesArray)
+
 }
 
 getRecipesBtn.addEventListener("click", () => {
