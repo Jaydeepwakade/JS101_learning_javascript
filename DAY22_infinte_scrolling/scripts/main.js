@@ -41,7 +41,7 @@ let addData = (data) => {
     img.classList.add("recipe-image")
     img.src = element.image
     imgdiv.append(img)
-
+   //hii
 
     let details = document.createElement("div")
     details.classList.add("recipe-details")
