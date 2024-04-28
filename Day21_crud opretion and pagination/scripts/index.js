@@ -149,12 +149,7 @@ let pagination = (url, limit) => {
 }
 
 
-let highlight = (currentpage)=>{
 
- 
- 
-
-}
 
 let addData = async () => {
 
